@@ -18,7 +18,6 @@ var remC = 0;
  
 if (c > b) {
 	totB = Math.floor (c / b);
-   
 	remC = c % b;
 
 } else {
