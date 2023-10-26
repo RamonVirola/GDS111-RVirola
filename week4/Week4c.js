@@ -5,7 +5,7 @@ for (let i = 0; i < 5; i++) {
 
 //word list
 for (let i = 0; i < 5; i++) {
-    console.log("Are we there yet?")
+    console.log("Are we there yet?");
 }
 
 //list on one line ?
