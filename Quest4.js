@@ -1,23 +1,16 @@
 var age = Number(prompt("What is your age?"));
-    
-var n = NaN;
-    console.log(age);
-    console.log(typeof age);
-    
-    console.log(n);
-    console.log(typeof n);
 
-if (age == n) {
-    console.log("invalid entry");
+if (isNaN(age)) {
+    console.log("Invalid entry");
+} else if (age === 0){
+    console.log("Invalid entry");
 } else {
-    console.log("correct");
+
+    if (age < 18) {
+        console.log("Minor");
+} else if (age > 64) {
+        console.log("Senior");
+   } else {
+        console.log("Neither senior nor minor");
+   }
 }
-
-
-//if (age < 18) {
-//   console.log("Minor");
-//} else if (age > 64) {
-//        console.log("Senior");
-//    } else {
-//        console.log("Neither");
-//    }
