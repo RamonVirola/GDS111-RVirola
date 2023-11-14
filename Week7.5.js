@@ -20,19 +20,19 @@ class Warrior {
     }
 }
 
-const Leviathin = new Warrior();
-Leviathin.setDamage(10);
-Leviathin.setHealth(100);
-console.log("Leviathin Stats:");
-console.log(Leviathin.getDamage());
-console.log(Leviathin.getHealth());
+const leviathin = new Warrior();
+leviathin.setDamage(10);
+leviathin.setHealth(100);
+console.log("leviathin Stats:");
+console.log(leviathin.getDamage());
+console.log(leviathin.getHealth());
 
-const Behemoth = new Warrior();
-Behemoth.setDamage(15);
-Behemoth.setHealth(90);
-console.log("Behemoth Stats:");
-console.log(Behemoth.getDamage());
-console.log(Behemoth.getHealth());
+const behemoth = new Warrior();
+behemoth.setDamage(15);
+behemoth.setHealth(90);
+console.log("behemoth Stats:");
+console.log(behemoth.getDamage());
+console.log(behemoth.getHealth());
 
 const thanos = new Warrior();
 thanos.setDamage(99);
