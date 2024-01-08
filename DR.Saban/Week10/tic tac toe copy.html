@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      font-size: 24px;
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ];
+
+    let currentPlayer = 'X';
+    let gameActive = true;
+
+    function renderBoard() {
+      const boardContainer = document.body;
+      boardContainer.innerHTML = '';
+
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          const button = document.createElement('button');
+          button.textContent = board[i][j];
+          button.addEventListener('click', () => onCellClick(i, j));
+          boardContainer.appendChild(button);
+        }
+        boardContainer.appendChild(document.createElement('br'));
+      }
+    }
+
+    function onCellClick(row, col) {
+      if (gameActive && board[row][col] === '') {
+        board[row][col] = currentPlayer;
+        renderBoard();
+
+        if (checkForWin(row, col)) {
+          alert(`Player ${currentPlayer} wins!`);
+          resetGame();
+        } else if (checkForDraw()) {
+          alert('It\'s a draw!');
+          resetGame();
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+      }
+    }
+
+    function checkForWin(row, col) {
+      // Check row
+      if (board[row].every(cell => cell === currentPlayer)) {
+        return true;
+      }
+
+      // Check column
+      if (board.every(row => row[col] === currentPlayer)) {
+        return true;
+      }
+
+      // Check diagonals
+      if (row === col && board.every((row, i) => row[i] === currentPlayer)) {
+        return true;
+      }
+
+      if (row + col === 2 && board.every((row, i) => row[2 - i] === currentPlayer)) {
+        return true;
+      }
+
+      return false;
+    }
+
+    function checkForDraw() {
+      return board.every(row => row.every(cell => cell !== ''));
+    }
+
+    function resetGame() {
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          board[i][j] = '';
+        }
+      }
+      currentPlayer = 'X';
+      gameActive = true;
+      renderBoard();
+    }
+
+    renderBoard();
+  </script>
+</body>
+</html>
